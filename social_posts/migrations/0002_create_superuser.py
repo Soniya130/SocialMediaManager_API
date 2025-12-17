@@ -12,7 +12,7 @@ def create_superuser(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('social_posts', '0001_initial'),  # Replace with the last migration of your app
+        ('social_posts', '0001_initial'),  # replace with your last migration
     ]
 
     operations = [
