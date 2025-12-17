@@ -19,7 +19,6 @@ ALLOWED_HOSTS = [
     os.environ.get("RAILWAY_PUBLIC_DOMAIN", "localhost")
 ]
 
-
 # Static files
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -28,8 +27,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+
     # ... keep other middleware
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
