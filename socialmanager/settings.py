@@ -2,6 +2,10 @@ import os
 import dj_database_url
 from pathlib import Path
 import dj_database_url
+ROOT_URLCONF = 'socialmanager.urls'
+WSGI_APPLICATION = 'socialmanager.wsgi.application'
+ASGI_APPLICATION = 'socialmanager.asgi.application'
+
 DATABASES = {
     "default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
