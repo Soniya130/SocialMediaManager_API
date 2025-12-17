@@ -2,6 +2,9 @@ import os
 import dj_database_url
 from pathlib import Path
 import dj_database_url
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_URLCONF = 'socialmanager.urls'
 WSGI_APPLICATION = 'socialmanager.wsgi.application'
 ASGI_APPLICATION = 'socialmanager.asgi.application'
@@ -25,11 +28,16 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Middleware for static files in production
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-
-    # ... keep other middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 INSTALLED_APPS = [
@@ -43,3 +51,5 @@ INSTALLED_APPS = [
     "rest_framework",
     "social_posts.apps.SocialPostsConfig",
 ]
+WHITENOISE_USE_FINDERS = True
+
