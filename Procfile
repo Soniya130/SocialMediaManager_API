@@ -1,5 +1,1 @@
-web: gunicorn socialmanager.wsgi
-release: python manage.py migrate && python manage.py collectstatic --noinput
-web: gunicorn SocialMediaManager.wsgi --bind 0.0.0.0:$PORT
-
-
+web: python manage.py collectstatic --noinput && gunicorn socialmanager.wsgi:application --bind 0.0.0.0:$PORT
