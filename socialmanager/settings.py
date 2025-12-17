@@ -16,6 +16,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     os.environ.get("RAILWAY_PUBLIC_DOMAIN", "localhost")
+    "web-production-1504c.up.railway.app",
 ]
 
 # Database
