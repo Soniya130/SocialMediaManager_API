@@ -4,6 +4,9 @@ from pathlib import Path
 import dj_database_url
 from pathlib import Path
 
+# Ensure staticfiles directory exists at startup
+os.makedirs(os.path.join(BASE_DIR, 'staticfiles'), exist_ok=True)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_URLCONF = 'socialmanager.urls'
 WSGI_APPLICATION = 'socialmanager.wsgi.application'
