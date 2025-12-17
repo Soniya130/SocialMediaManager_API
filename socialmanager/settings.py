@@ -26,6 +26,22 @@ SECRET_KEY = 'django-insecure-+_4)$c+3xq+&*=_d9tp5=&%+a(in1yzujf#e66k)pi9nfhree)
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+import os
+
+ALLOWED_HOSTS = [
+    "socialmediamanager-api.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://socialmediamanager-api.onrender.com",
+]
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+DEBUG = False
 
 
 # Application definition
@@ -133,3 +149,4 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.JSONRenderer",
     ]
 }
+
