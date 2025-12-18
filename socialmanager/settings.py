@@ -5,8 +5,6 @@ import dj_database_url
 # BASE_DIR defined once
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Ensure staticfiles directory exists at startup
-os.makedirs(BASE_DIR / "staticfiles", exist_ok=True)
 
 # Secret key and debug
 SECRET_KEY = os.environ.get(
@@ -44,7 +42,7 @@ ASGI_APPLICATION = "socialmanager.asgi.application"
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+STATICFILES_DIRS = [BASE_DIR / "static"]  # Only if you have global static folder
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
