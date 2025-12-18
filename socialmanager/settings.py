@@ -42,8 +42,8 @@ ASGI_APPLICATION = "socialmanager.asgi.application"
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_DIRS = [BASE_DIR / "static"]  # Only if you have global static folder
-# Middleware
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
