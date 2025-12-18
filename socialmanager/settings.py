@@ -42,6 +42,7 @@ ASGI_APPLICATION = "socialmanager.asgi.application"
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+os.makedirs(STATIC_ROOT, exist_ok=True)
 
 
 MIDDLEWARE = [
