@@ -19,6 +19,16 @@ ALLOWED_HOSTS = [
     "web-production-1504c.up.railway.app",
     '127.0.0.1',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-1504c.up.railway.app",
+]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+
 
 # Database
 DATABASES = {
