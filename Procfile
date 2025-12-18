@@ -1,1 +1,2 @@
-web: mkdir -p staticfiles && python manage.py collectstatic --noinput && gunicorn socialmanager.wsgi:application --bind 0.0.0.0:$PORT
+release: python manage.py collectstatic --noinput
+web: gunicorn socialmanager.wsgi --log-file -
