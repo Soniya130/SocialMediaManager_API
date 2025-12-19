@@ -30,8 +30,12 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Database
 DATABASES = {
-    "default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.config(
+        default="sqlite:///db.sqlite3",
+        conn_max_age=600
+    )
 }
+
 
 # URLs / WSGI / ASGI
 ROOT_URLCONF = "socialmanager.urls"
@@ -67,8 +71,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "rest_framework",
-    "social_posts.apps.SocialPostsConfig",
-]
+    'social_posts',]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
